@@ -21,7 +21,7 @@ function CardLeague({ idLeague, name, country, flag }) {
           maxWidth: 350,
           borderRadius: "16px",
           ":hover": {
-            boxShadow: "0rem 0rem 0.5rem 0.1rem #1976d2",
+            boxShadow: "0 0 0.5rem 0.1rem #1976d2",
           },
         }}
       >

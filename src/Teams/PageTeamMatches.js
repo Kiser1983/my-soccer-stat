@@ -96,7 +96,7 @@ function TeamMatches({ team }) {
           />
         </Box>
 
-        <Typography variant="h4" color="primary.main" fontWeight="bold" marginBottom={-1}>
+        <Typography variant="h4" color="primary.main" fontWeight="bold">
           Матчи
         </Typography>
       </Box>

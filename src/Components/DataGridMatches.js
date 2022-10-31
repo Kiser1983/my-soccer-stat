@@ -91,7 +91,7 @@ function DataGridMatches({ matches }) {
 
   return (
     <Box 
-    sx={{ height: "70vh", marginLeft: 2, marginRight: 2 }}>
+    sx={{ height: "70vh", marginLeft: 4, marginRight: 4 }}>
       <DataGrid
         rowHeight={35}
         rows={rows}

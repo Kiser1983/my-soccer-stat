@@ -31,7 +31,7 @@ function Navbar() {
           minWidth: "140px",
           fontWeight: "bold",
           ":hover": {
-            boxShadow: "0rem 0rem 0.5rem 0.1rem white",
+            boxShadow: "0 0 0.5rem 0.1rem white",
           },
         }}
         variant="text"
@@ -47,7 +47,7 @@ function Navbar() {
           minWidth: "140px",
           fontWeight: "bold",
           ":hover": {
-            boxShadow: "0rem 0rem 0.5rem 0.1rem white",
+            boxShadow: "0 0 0.5rem 0.1rem white",
           },
         }}
         variant="outlined"
