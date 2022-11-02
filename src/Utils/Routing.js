@@ -1,25 +1,27 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { getLeagues, getTeams } from "../API/fetch.js";
+import { getLeagues, getTeams } from "./Api";
 import { useEffect, useState } from "react";
-import PageLeagues from "../Leagues/PageLeagues.js";
-import PageTeams from "../Teams/PageTeams.js";
-import PageLeagueMatches from "../Leagues/PageLeagueMatches.js";
-import PageTeamMatches from "../Teams/PageTeamMatches.js";
+import PageLeagues from "../Leagues/PageLeagues";
+import PageTeams from "../Teams/PageTeams";
+import PageLeagueMatches from "../Leagues/PageLeagueMatches";
+import PageTeamMatches from "../Teams/PageTeamMatches";
+import Loading from "../Components/Loading";
 
 function Routing() {
   const [leagues, setLeagues] = useState([]);
   useEffect(() => {
     const fetchDataLeagues = async () => {
       const jsonLeagues = await getLeagues();
-      
+
       if (!jsonLeagues) return;
       console.log("jsonLeagues", jsonLeagues.competitions);
-      
+
       setLeagues(jsonLeagues.competitions);
     };
     fetchDataLeagues();
   }, []);
   const [teams, setTeams] = useState([]);
+
   useEffect(() => {
     const fetchDataTeams = async () => {
       const jsonTeams = await getTeams();
@@ -44,12 +46,16 @@ function Routing() {
     />
   ));
 
+  if (!teams.length) {
+    return <Loading />;
+  }
+  if (!leagues.length) {
+    return <Loading />;
+  }
+
   return (
     <Routes>
-      <Route
-        path="/leagues"
-        element={<PageLeagues leagues={leagues} />}
-      />
+      <Route path="/leagues" element={<PageLeagues leagues={leagues} />} />
       <Route path="/teams" element={<PageTeams teams={teams} />} />
       {leagueMatchesRoute}
       {teamsMatchesRoute}

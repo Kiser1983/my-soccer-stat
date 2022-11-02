@@ -1,19 +1,38 @@
 import * as React from "react";
 import { Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import Loading from "./Loading";
+
+let x = -1;
 
 function DataGridMatches({ matches }) {
   const [pageSize, setPageSize] = React.useState(12);
-  if (!matches.length)
+
+  if (!matches.length) {
+    x = matches.length;
+
+    console.log(`matchesX - ${x}`);
+
+    // if (x === 0) {
+    //   return
+    //   <Typography marginTop={6} color="error.main" fontWeight="bold">
+    //     Данные отсутствуют
+    //   </Typography>;
+    // };
+
     return (
-      <Typography marginTop={6} color="error.main" fontWeight="bold">
-        Данные отсутствуют
-      </Typography>
+      <Loading />
+      // <Typography marginTop={6} color="error.main" fontWeight="bold">
+      //   Данные отсутствуют
+      // </Typography>
     );
+  }
+
+  console.log(`x = ${x}`);
 
   const checkScore = (value) => {
     if (value === null) {
-      return "--";
+      return "?";
     } else {
       return value;
     }
@@ -32,40 +51,33 @@ function DataGridMatches({ matches }) {
   const columns = [
     {
       field: "date",
-
       headerName: "Дата",
       width: 180,
-      editable: true,
     },
     {
       field: "time",
       headerName: "Время",
       width: 180,
-      editable: true,
     },
     {
       field: "status",
       headerName: "Статус",
       width: 180,
-      editable: true,
     },
     {
       field: "host",
       headerName: "Хозяин",
       width: 180,
-      editable: true,
     },
     {
       field: "visitor",
       headerName: "Гость",
       width: 180,
-      editable: true,
     },
     {
       field: "score",
       headerName: "Счет",
       width: 180,
-      editable: true,
     },
   ];
   const checkid = (check) => {
@@ -81,17 +93,20 @@ function DataGridMatches({ matches }) {
     score: `${checkScore(match.score.fullTime.homeTeam)} : ${checkScore(
       match.score.fullTime.awayTeam
     )}`,
-    extraScore: `${checkScore(match.score.extraTime.homeTeam)} : ${checkScore(
-      match.score.extraTime.awayTeam
-    )}`,
-    penalties: `${checkScore(match.score.penalties.homeTeam)} : ${checkScore(
-      match.score.penalties.awayTeam
-    )}`,
   }));
 
+  // if (x === 0) {
+  //   console.log(`matches00 - ${x}`);
+  //   return (
+  //     <Typography marginTop={6} color="error.main" fontWeight="bold">
+  //       Данные отсутствуют 11111 2222 333
+  //     </Typography>
+  //   );
+  // }
+
+  console.log(`matches999- - ${matches.length}`);
   return (
-    <Box 
-    sx={{ height: "70vh", marginLeft: 4, marginRight: 4 }}>
+    <Box sx={{ height: "70vh", marginLeft: 4, marginRight: 4 }}>
       <DataGrid
         rowHeight={35}
         rows={rows}

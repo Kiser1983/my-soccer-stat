@@ -2,7 +2,7 @@ import { Pagination, Stack} from "@mui/material";
 import Searchbar from "../Components/Searchbar";
 import { useState } from "react";
 import LeaguesList from "./ListLeagues";
-import Filter from "../Components/Filter";
+import Filter from "../Utils/Filter";
 
 function PaginatorLeagues({ leagues }) {
   const [query, setQuery] = useState("");

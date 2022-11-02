@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
-import SelectedTeamMatches from "./SelectedTeamMatches";
+import { SelectedTeamMatches } from "../Utils/Selected";
 import DataGridMatches from "../Components/DataGridMatches";
 import DatePickerMatches from "../Components/DatePicker";
 import { Breadcrumbs, Typography } from "@mui/material";
