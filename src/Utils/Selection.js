@@ -10,9 +10,10 @@ export const SelectedLeagueMatches = (leagueId, strDateFrom, strDateTo) => {
 };
 
 export const SelectedTeamMatches = (teamId, strDateFrom, strDateTo, image) => {
-    if (strDateFrom.length === 10 && strDateTo.length === 10) {
-      return getTeamMatches(teamId, strDateFrom, strDateTo);
-    } else {
-      return getTeamMatches(teamId, "", "", image);
-    }
-  };
+  if (strDateFrom.length === 10 && strDateTo.length === 10) {
+    return getTeamMatches(teamId, strDateFrom, strDateTo);
+  } else {
+    return getTeamMatches(teamId, "", "", image);
+  }
+};
+ 
